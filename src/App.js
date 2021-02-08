@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
+// test
+
 class App extends React.Component {
   render() {
     return (
