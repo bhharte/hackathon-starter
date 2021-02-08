@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import CreateAccount from "./components/createAccount/CreateAccount"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // test
 
