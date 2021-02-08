@@ -10,7 +10,14 @@ class Profile extends React.Component {
     return (
       <div className="Profile">
         <Menu isAuthenticated={this.props.isAuthenticated} />
-        <Messages username={this.props.match.params.username} />
+        <div className="container d-flex">
+          <div>
+            <h2>Other stuff</h2>
+          </div>
+          <div className="container float-right">
+            <Messages username={this.props.match.params.username} />
+          </div>
+        </div>
       </div>
     );
   }

@@ -45,24 +45,32 @@ class Messages extends React.Component {
     this.setState(data);
   }
 
+  handleLike = (event) => {
+    // like
+  }
+
   render() {
     let display = (<div>No Messages Found</div>)
     if (this.state.messages) {
       display = this.state.messages.map((value) => {
-        return (
-          <li key={value.id}>{value.text}</li>
+        return (<div className="d-flex">
+          <li className="list-group-item border bg-light rounded font-weight-bold flex-grow-1 my-1" key={value.id}>{value.text}  
+          <br/></li>
+          <button onClick={this.handleLike} className="btn btn-sm btn-primary float-right my-1">Like
+          </button>
+          </div>
         )
       })
     }
 
     return (
       <div className="Messages">
-        <div className="ListMessage">
-          {display}
+        <div className="NewMessage container d-flex">
+          <input className="flex-grow-1" name="message" onChange={this.handleChange} value={this.state.message}/>
+          <button className="float-right btn btn-primary" onClick={this.newMessageHandler}>Create Post</button>
         </div>
-        <div className="NewMessage">
-          <input name="message" onChange={this.handleChange} value={this.state.message}/>
-          <button onClick={this.newMessageHandler}> Send Message </button>
+        <div className="ListMessage d-flex-column">
+          {display}
         </div>
       </div>
     );

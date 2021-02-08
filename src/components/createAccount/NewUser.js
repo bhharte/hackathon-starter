@@ -29,7 +29,7 @@ class NewUser extends React.Component {
       // <div className="newUser">
       //   <form id="newUser" onSubmit={this.handleLogin}>
       //     <button type="submit" disabled={loading}>
-           <Link to="/newuser" variant="btn"> New? Create account </Link>
+           <Link to="/newuser" className="btn btn-primary border"> New? Create account </Link>
       //     </button>
       //   </form>
       //   {loading && <Spinner name="circle" color="blue" />}
