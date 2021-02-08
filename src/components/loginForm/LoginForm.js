@@ -2,10 +2,13 @@ import React from "react";
 import Spinner from "react-spinkit";
 import { withAsyncAction } from "../../redux/HOCs";
 import "./LoginForm.css";
+import NewUser from "../createAccount/NewUser"
+import UserCredentials from "../../UserCredentials"
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
+    this.client = new UserCredentials();
     this.state = {
       username: "",
       password: ""
@@ -44,6 +47,7 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
+          <NewUser />
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
