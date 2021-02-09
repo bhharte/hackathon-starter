@@ -22,26 +22,28 @@ class CreateAccount extends React.Component {
       };
 
  render (){
-     return (<div className="createAccount"><h1> Welcome to Kwitter! </h1>
+     return (<div className="bg-light p-5 createAccount container d-flex-column"><h1> Welcome to Kwitter! </h1>
      <h3> Create a new account: </h3>
      <form id="create-form" onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
-          <input
+          <input className="form-control"
             type="text"
             name="username"
             autoFocus
             required
             onChange={this.handleChange}
           />
+          <br/>
           <label htmlFor="password">Password</label>
-          <input
+          <input className="form-control"
             type="password"
             name="password"
             required
             onChange={this.handleChange}
           />
-          <button type="submit">
-            Create *send me somewhere
+          <br/>
+          <button className="btn btn-primary" type="submit">
+            Become a Kwitter!
           </button>
         </form>
      </div>)

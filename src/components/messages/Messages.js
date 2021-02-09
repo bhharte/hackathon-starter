@@ -89,8 +89,8 @@ class Messages extends React.Component {
 
     return (
       <div className="Messages">
-        <div className="NewMessage container d-flex">
-          <input className="form-control" name="message" onChange={this.handleChange} value={this.state.message}/>
+        <div className="NewMessage container d-flex my-5">
+          <label>What's on your mind?????</label><input className="form-control p-3" name="message" onChange={this.handleChange} value={this.state.message}/>
           <button className="float-right btn btn-sm btn-primary" onClick={this.newMessageHandler}>Create Post</button>
         </div>
         <div className="ListMessage d-flex-column">
