@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
   render() {
     const { loading, error } = this.props;
     return (
-      <div className="LoginForm">
+      <div className="LoginForm container d-flex-column mx-auto">
         <form id="login-form" onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
           <input

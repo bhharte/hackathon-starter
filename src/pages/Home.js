@@ -7,9 +7,17 @@ class Home extends React.Component {
   render() {
     return (
       <div className="Home">
-        <Menu />
-        <h2>Your favorite microblogging platform</h2>
-        <LoginForm />
+        <div className="container d-flex align-items-center">
+          <div className="m-5">
+            <h2>Welcome to Kwitter,</h2>
+            <h3 className="text-weight-lighter font-italic text-light bg-warning p-2">The internet's least utilized microblogging platform</h3>
+          </div>
+          <div className="d-flex-column justify-content-center m-5">
+            <Menu />
+            
+            <LoginForm />
+          </div>
+        </div>
       </div>
     );
   }
