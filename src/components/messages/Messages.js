@@ -46,17 +46,33 @@ class Messages extends React.Component {
   }
 
   handleLike = (event) => {
-    // like
+      // let messageId = this.state.messages[0].id;
+      this.props.addLike(Number(event.target.id)).then(() => {
+        this.fetchMessages();
+        this.setState({
+          message: ''
+        })
+      })
+      // .catch(
+      //   console.log("caught"),
+      //   this.props.removeLike(Number(event.target.id))
+      //   )
   }
+
+  // JSON.stringify(value.likes[0])
 
   render() {
     let display = (<div>No Messages Found</div>)
+    // console.log(this.state.messages);
+    // console.log(this.state.message);
+    
     if (this.state.messages) {
       display = this.state.messages.map((value) => {
+        let isLiked = (value.likes[0])?"Liked":"Like";
         return (<div className="d-flex">
           <li className="list-group-item border bg-light rounded font-weight-bold flex-grow-1 my-1" key={value.id}>{value.text}  
           <br/></li>
-          <button onClick={this.handleLike} className="btn btn-sm btn-primary float-right my-1">Like
+        <button id={value.id} onClick={this.handleLike} className="btn btn-sm btn-primary float-right my-1">{isLiked}{JSON.stringify(value.likes[0])}
           </button>
           </div>
         )
@@ -66,8 +82,8 @@ class Messages extends React.Component {
     return (
       <div className="Messages">
         <div className="NewMessage container d-flex">
-          <input className="flex-grow-1" name="message" onChange={this.handleChange} value={this.state.message}/>
-          <button className="float-right btn btn-primary" onClick={this.newMessageHandler}>Create Post</button>
+          <input className="form-control" name="message" onChange={this.handleChange} value={this.state.message}/>
+          <button className="float-right btn btn-sm btn-primary" onClick={this.newMessageHandler}>Create Post</button>
         </div>
         <div className="ListMessage d-flex-column">
           {display}

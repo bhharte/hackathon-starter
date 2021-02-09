@@ -100,6 +100,32 @@ export const addLike = (messageId) => (dispatch, getState) => {
     });
 };
 
+export const getLike = (messageId) => (dispatch, getState) => {
+  dispatch({
+    type: ADDLIKE.START
+  });
+
+  const token = getState().auth.login.result.token;
+
+  return fetch(url + "/likes", {
+    method: "GET",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify({messageId})
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: ADDLIKE.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: ADDLIKE.FAIL, payload: err.message })
+      );
+    });
+};
+
 export const removeLike = (likeId) => (dispatch, getState) => {
   dispatch({
     type: REMOVELIKE.START
